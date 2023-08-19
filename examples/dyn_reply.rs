@@ -1,7 +1,7 @@
 #![deny(warnings)]
 use warp::{http::StatusCode, Filter};
 
-async fn dyn_reply(word: String) -> Result<Box<dyn warp::Reply>, warp::Rejection> {
+async fn dyn_reply(word: String) -> Result<Box<dyn warp::Reply>, std::convert::Infallible> {
     if &word == "hello" {
         Ok(Box::new("world"))
     } else {
